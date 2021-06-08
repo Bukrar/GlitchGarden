@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
-    [SerializeField] private float walkSpeed = 1f;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    private float walkSpeed = 1f;
     void Update()
     {
-        transform.Translate(Vector2.left * walkSpeed *Time.deltaTime);
+        transform.Translate(Vector2.left * walkSpeed * Time.deltaTime);
     }
+
+    //public void SetMovementSpeed(float speed)
+    //{
+    //    walkSpeed = speed;
+    //}
 }
