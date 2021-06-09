@@ -5,8 +5,20 @@ using UnityEngine;
 public class Zucchini : MonoBehaviour
 {
     float speed = 3f;
+    float damage = 50f;
     void Update()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        var health = collision.GetComponent<Health>();
+        var attacker = collision.GetComponent<Attacker>();
+        if(attacker && health)
+        {
+            health.DealDamage(damage);
+            Destroy(gameObject);
+        }
+     
     }
 }
