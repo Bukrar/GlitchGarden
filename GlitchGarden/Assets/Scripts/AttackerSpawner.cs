@@ -5,8 +5,8 @@ using UnityEngine;
 public class AttackerSpawner : MonoBehaviour
 {
     bool isSpawn = true;
-    float minSpawnTime = 1f;
-    float maxSpawnTime = 5f;
+    float minSpawnTime = 2f;
+    float maxSpawnTime = 7f;
     [SerializeField] GameObject attacterPerfab;
     IEnumerator Start()
     {
