@@ -28,7 +28,7 @@ public class Life : MonoBehaviour
 
         if(lifePoint <= 0)
         {
-            FindObjectOfType<LevelLoader>().LoadGameOver();
+            FindObjectOfType<LevelController>().HandleLostnCondition();
         }
     }
 }
