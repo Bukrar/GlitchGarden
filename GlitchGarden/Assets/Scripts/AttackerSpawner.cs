@@ -7,7 +7,7 @@ public class AttackerSpawner : MonoBehaviour
     bool isSpawn = true;
     float minSpawnTime = 2f;
     float maxSpawnTime = 7f;
-    [SerializeField] GameObject attacterPerfab;
+    [SerializeField] GameObject[] attacterPerfabArray;
     IEnumerator Start()
     {
         while (isSpawn)
@@ -19,12 +19,13 @@ public class AttackerSpawner : MonoBehaviour
 
     private void SpawnAttacter()
     {
-        GameObject newAttacker = Instantiate(attacterPerfab, transform.position, Quaternion.identity);
-        newAttacker.transform.parent = transform;
+        var attackerIndex = Random.Range(0, attacterPerfabArray.Length);
+        Spawn(attacterPerfabArray[attackerIndex]);
     }
 
-    void Update()
+    private void Spawn(GameObject myAttacker)
     {
-
+        GameObject newAttacker = Instantiate(myAttacker, transform.position, Quaternion.identity);
+        newAttacker.transform.parent = transform;
     }
 }
