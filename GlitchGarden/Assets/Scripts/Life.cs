@@ -6,12 +6,14 @@ using UnityEngine.UI;
 
 public class Life : MonoBehaviour
 {
-    private int lifePoint = 5;
+    private float baselifePoint = 3;
+    private float lifePoint;
     private int damage = 1;
     Text lifeText;
 
     void Start()
     {
+        lifePoint = baselifePoint - PlayerPrefabController.GetDifficulty();
         lifeText = GetComponent<Text>();
         UpdateDisplay();
     }
